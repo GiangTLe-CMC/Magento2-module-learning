@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="GiangModule_SampleModule::giang" title="GiangModule" 
+            module="GiangModule_SampleModule" resource="GiangModule_SampleModule::giang" 
+            translate="title"  sortOrder="900" action="giang" />
+    </menu>
+</config>
