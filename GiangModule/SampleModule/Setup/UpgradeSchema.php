@@ -25,10 +25,20 @@ class UpgradeSchema implements UpgradeSchemaInterface //implement one install me
                     'nullable' => true,
                     'comment' => 'Item Description'
                 ]
-            );
-                                                                                                                     
+            );                                                                                                      
         }
-        
+        if (version_compare($context->getVersion(), '1.0.2', '<')) {    //if the version is < 1.0.1 then the script should run
+            //if the version is > 1.0.1 the script already run, we do not have to run again
+            $setup->getConnection()->addColumn(
+                $setup->getTable('sales_order_grid'),
+                'base_tax_amount',
+                [
+                    'type' => Table::TYPE_DECIMAL,
+                    'comment' => 'Base Tax Amount'
+                ]
+            );                                                                                                      
+        }
+            
         $setup->endSetup();
     }
 }
